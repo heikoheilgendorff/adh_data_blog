@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "New test",
-            "content": ".",
-            "url": "https://heikoheilgendorff.github.io/adh_data_blog/2022/06/08/test_2.html",
-            "relUrl": "/2022/06/08/test_2.html",
+            "title": "Fastpages Notebook Blog Post",
+            "content": ". First attempt at reading some data . df = pd.read_excel(&#39;data/owid_sample.xlsx&#39;) . FileNotFoundError Traceback (most recent call last) &lt;ipython-input-2-2640d10c2eb0&gt; in &lt;module&gt;() -&gt; 1 df = pd.read_excel(&#39;data/owid_sample.xlsx&#39;) /usr/local/lib/python3.7/dist-packages/pandas/util/_decorators.py in wrapper(*args, **kwargs) 309 stacklevel=stacklevel, 310 ) --&gt; 311 return func(*args, **kwargs) 312 313 return wrapper /usr/local/lib/python3.7/dist-packages/pandas/io/excel/_base.py in read_excel(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options) 362 if not isinstance(io, ExcelFile): 363 should_close = True --&gt; 364 io = ExcelFile(io, storage_options=storage_options, engine=engine) 365 elif engine and engine != io.engine: 366 raise ValueError( /usr/local/lib/python3.7/dist-packages/pandas/io/excel/_base.py in __init__(self, path_or_buffer, engine, storage_options) 1190 else: 1191 ext = inspect_excel_format( -&gt; 1192 content_or_path=path_or_buffer, storage_options=storage_options 1193 ) 1194 if ext is None: /usr/local/lib/python3.7/dist-packages/pandas/io/excel/_base.py in inspect_excel_format(content_or_path, storage_options) 1069 1070 with get_handle( -&gt; 1071 content_or_path, &#34;rb&#34;, storage_options=storage_options, is_text=False 1072 ) as handle: 1073 stream = handle.handle /usr/local/lib/python3.7/dist-packages/pandas/io/common.py in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options) 709 else: 710 # Binary mode --&gt; 711 handle = open(handle, ioargs.mode) 712 handles.append(handle) 713 FileNotFoundError: [Errno 2] No such file or directory: &#39;data/owid_sample.xlsx&#39; . df.head() .",
+            "url": "https://heikoheilgendorff.github.io/adh_data_blog/jupyter/2022/06/08/test_2.html",
+            "relUrl": "/jupyter/2022/06/08/test_2.html",
             "date": " • Jun 8, 2022"
         }
         
