@@ -13,3 +13,6 @@ _notebooks/.ipynb_checkpoints
 .tweet-cache
 __pycache__
 _notebooks/data
+_notebooks/chart.html
+_notebooks/kenya.html
+_notebooks/kenya.csv
