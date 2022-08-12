@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Taking a look at some malaria data using Altair | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Taking a look at some malaria data using Altair" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Just testing" />
+<meta property="og:description" content="Just testing" />
+<link rel="canonical" href="https://heikoheilgendorff.github.io/adh_data_blog/jupyter/malaria/2022/08/12/Malaria_blog_post_altair.html" />
+<meta property="og:url" content="https://heikoheilgendorff.github.io/adh_data_blog/jupyter/malaria/2022/08/12/Malaria_blog_post_altair.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://heikoheilgendorff.github.io/adh_data_blog/images/chart-preview.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-12T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://heikoheilgendorff.github.io/adh_data_blog/images/chart-preview.png" />
+<meta property="twitter:title" content="Taking a look at some malaria data using Altair" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-12T00:00:00-05:00","datePublished":"2022-08-12T00:00:00-05:00","description":"Just testing","headline":"Taking a look at some malaria data using Altair","image":"https://heikoheilgendorff.github.io/adh_data_blog/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://heikoheilgendorff.github.io/adh_data_blog/jupyter/malaria/2022/08/12/Malaria_blog_post_altair.html"},"url":"https://heikoheilgendorff.github.io/adh_data_blog/jupyter/malaria/2022/08/12/Malaria_blog_post_altair.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/adh_data_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://heikoheilgendorff.github.io/adh_data_blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/adh_data_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/adh_data_blog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/adh_data_blog/about/">About Me</a><a class="page-link" href="/adh_data_blog/search/">Search</a><a class="page-link" href="/adh_data_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Taking a look at some malaria data using Altair</h1><p class="page-description">Just testing</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-12T00:00:00-05:00" itemprop="datePublished">
+        Aug 12, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/adh_data_blog/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/adh_data_blog/categories/#malaria">malaria</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Get-the-data">Get the data </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-08-12-Malaria_blog_post_altair.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>     
+<span class="kn">import</span> <span class="nn">json</span>         
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Get-the-data">
+<a class="anchor" href="#Get-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get the data<a class="anchor-link" href="#Get-the-data"> </a>
+</h2>
+<p>The data can be found on ckan <a href="https://ckan.africadatahub.org/dataset/who-malaria/resource/3fb5a88a-c48b-432d-a9b4-d76b26363705">here</a>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   _id       IndicatorCode                           Indicator ValueType  \
+0    1  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+1    2  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+2    3  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+3    4  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+4    5  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+5    6  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+6    7  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+7    8  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+8    9  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+9   10  MALARIA_EST_DEATHS  Estimated number of malaria deaths      text   
+
+  ParentLocationCode   ParentLocation Location type SpatialDimValueCode  \
+0                AMR         Americas       Country                 BLZ   
+1               SEAR  South-East Asia       Country                 BTN   
+2                AFR           Africa       Country                 CPV   
+3                AMR         Americas       Country                 CRI   
+4               SEAR  South-East Asia       Country                 PRK   
+5                AFR           Africa       Country                 SWZ   
+6                AMR         Americas       Country                 GTM   
+7                AMR         Americas       Country                 MEX   
+8               SEAR  South-East Asia       Country                 NPL   
+9                AMR         Americas       Country                 NIC   
+
+                                Location Period type  ...  FactValueUoM  \
+0                                 Belize        Year  ...                 
+1                                 Bhutan        Year  ...                 
+2                             Cabo Verde        Year  ...                 
+3                             Costa Rica        Year  ...                 
+4  Democratic People's Republic of Korea        Year  ...                 
+5                               Eswatini        Year  ...                 
+6                              Guatemala        Year  ...                 
+7                                 Mexico        Year  ...                 
+8                                  Nepal        Year  ...                 
+9                              Nicaragua        Year  ...                 
+
+  FactValueNumericLowPrefix FactValueNumericLow FactValueNumericHighPrefix  \
+0                                           NaN                              
+1                                           NaN                              
+2                                           NaN                              
+3                                           NaN                              
+4                                           NaN                              
+5                                           NaN                              
+6                                           NaN                              
+7                                           NaN                              
+8                                           NaN                              
+9                                           NaN                              
+
+  FactValueNumericHigh Value FactValueTranslationID FactComments Language  \
+0                  NaN     0                                           EN   
+1                  NaN     0                                           EN   
+2                  NaN     0                                           EN   
+3                  NaN     0                                           EN   
+4                  NaN     0                                           EN   
+5                  NaN     0                                           EN   
+6                  NaN     0                                           EN   
+7                  NaN     0                                           EN   
+8                  NaN     0                                           EN   
+9                  NaN     0                                           EN   
+
+          DateModified  
+0  2022-02-02T22:00:00  
+1  2022-02-02T22:00:00  
+2  2022-02-02T22:00:00  
+3  2022-02-02T22:00:00  
+4  2022-02-02T22:00:00  
+5  2022-02-02T22:00:00  
+6  2022-02-02T22:00:00  
+7  2022-02-02T22:00:00  
+8  2022-02-02T22:00:00  
+9  2022-02-02T22:00:00  
+
+[10 rows x 35 columns]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see, there are a lot of columns in this dataset. We are also only interested in African countries, so we can select the countries and columns as follows.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">ParentLocation</span><span class="o">==</span><span class="s1">'Africa'</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'SpatialDimValueCode'</span><span class="p">,</span> <span class="s1">'Location'</span><span class="p">,</span><span class="s1">'Indicator'</span><span class="p">,</span><span class="s1">'Period'</span><span class="p">,</span><span class="s1">'FactValueNumeric'</span><span class="p">,</span><span class="s1">'FactValueNumericLow'</span><span class="p">,</span><span class="s1">'FactValueNumericHigh'</span><span class="p">,</span><span class="s1">'DateModified'</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">cols</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   SpatialDimValueCode               Location  \
+2                  CPV             Cabo Verde   
+5                  SWZ               Eswatini   
+12                 STP  Sao Tome and Principe   
+18                 BEN                  Benin   
+19                 GIN                 Guinea   
+20                 COM                Comoros   
+22                 GHA                  Ghana   
+23                 TCD                   Chad   
+24                 KEN                  Kenya   
+27                 CMR               Cameroon   
+
+                             Indicator  Period  FactValueNumeric  \
+2   Estimated number of malaria deaths    2020               0.0   
+5   Estimated number of malaria deaths    2020               0.0   
+12  Estimated number of malaria deaths    2020               0.0   
+18  Estimated number of malaria deaths    2020           10123.0   
+19  Estimated number of malaria deaths    2020           10215.0   
+20  Estimated number of malaria deaths    2020              11.0   
+22  Estimated number of malaria deaths    2020           12084.0   
+23  Estimated number of malaria deaths    2020           12415.0   
+24  Estimated number of malaria deaths    2020           12646.0   
+27  Estimated number of malaria deaths    2020           14841.0   
+
+    FactValueNumericLow  FactValueNumericHigh         DateModified  
+2                   NaN                   NaN  2022-02-02T22:00:00  
+5                   NaN                   NaN  2022-02-02T22:00:00  
+12                  NaN                   NaN  2022-02-02T22:00:00  
+18               8420.0               12600.0  2022-02-02T22:00:00  
+19               7760.0               12700.0  2022-02-02T22:00:00  
+20                  0.0                  18.0  2022-02-02T22:00:00  
+22              11200.0               13300.0  2022-02-02T22:00:00  
+23               9340.0               16600.0  2022-02-02T22:00:00  
+24              11400.0               14800.0  2022-02-02T22:00:00  
+27              12300.0               18200.0  2022-02-02T22:00:00  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_kenya</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Location</span><span class="o">==</span><span class="s1">'Kenya'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">TitleParams</span><span class="p">(</span><span class="s1">'Estimated number of deaths due to Malaria in Kenya'</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">'middle'</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_kenya</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'Period:O'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Year'</span><span class="p">),</span> <span class="c1"># :O tells altair that the data is ordinal</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'FactValueNumeric'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Number of Deaths'</span><span class="p">))</span>
+
+<span class="n">point</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_kenya</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'Period:O'</span><span class="p">),</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'FactValueNumericLow'</span><span class="p">),</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s1">'FactValueNumericHigh'</span><span class="p">),</span>
+<span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">'Period'</span><span class="p">,</span><span class="s1">'FactValueNumericLow'</span><span class="p">,</span><span class="s1">'FactValueNumeric'</span><span class="p">,</span><span class="s1">'FactValueNumericHigh'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">line</span><span class="o">+</span><span class="n">point</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-4a7cfd48ae4a415690cce86b8f32b593"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4a7cfd48ae4a415690cce86b8f32b593") {
+      outputDiv = document.getElementById("altair-viz-4a7cfd48ae4a415690cce86b8f32b593");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"x": {"type": "ordinal", "field": "Period", "title": "Year"}, "y": {"type": "quantitative", "field": "FactValueNumeric", "title": "Number of Deaths"}}, "title": {"text": "Estimated number of deaths due to Malaria in Kenya", "anchor": "middle"}}, {"mark": {"type": "area", "opacity": 0.3}, "encoding": {"tooltip": [{"type": "quantitative", "field": "Period"}, {"type": "quantitative", "field": "FactValueNumericLow"}, {"type": "quantitative", "field": "FactValueNumeric"}, {"type": "quantitative", "field": "FactValueNumericHigh"}], "x": {"type": "ordinal", "field": "Period"}, "y": {"type": "quantitative", "field": "FactValueNumericLow"}, "y2": {"field": "FactValueNumericHigh"}}}], "data": {"name": "data-f6e8ac133be1ee5f394216b31811c4ee"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-f6e8ac133be1ee5f394216b31811c4ee": [{"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2020, "FactValueNumeric": 12646.0, "FactValueNumericLow": 11400.0, "FactValueNumericHigh": 14800.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2019, "FactValueNumeric": 11979.0, "FactValueNumericLow": 11200.0, "FactValueNumericHigh": 13200.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2018, "FactValueNumeric": 11850.0, "FactValueNumericLow": 11100.0, "FactValueNumericHigh": 12900.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2017, "FactValueNumeric": 11845.0, "FactValueNumericLow": 11100.0, "FactValueNumericHigh": 12800.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2016, "FactValueNumeric": 11298.0, "FactValueNumericLow": 10700.0, "FactValueNumericHigh": 12100.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2015, "FactValueNumeric": 10862.0, "FactValueNumericLow": 10400.0, "FactValueNumericHigh": 11500.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2014, "FactValueNumeric": 10634.0, "FactValueNumericLow": 10200.0, "FactValueNumericHigh": 11100.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2013, "FactValueNumeric": 10439.0, "FactValueNumericLow": 10100.0, "FactValueNumericHigh": 10900.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2012, "FactValueNumeric": 10372.0, "FactValueNumericLow": 10000.0, "FactValueNumericHigh": 10800.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2011, "FactValueNumeric": 10371.0, "FactValueNumericLow": 10000.0, "FactValueNumericHigh": 10700.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2010, "FactValueNumeric": 10033.0, "FactValueNumericLow": 9740.0, "FactValueNumericHigh": 10400.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2009, "FactValueNumeric": 9855.0, "FactValueNumericLow": 9570.0, "FactValueNumericHigh": 10200.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2008, "FactValueNumeric": 9714.0, "FactValueNumericLow": 9430.0, "FactValueNumericHigh": 10000.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2007, "FactValueNumeric": 9792.0, "FactValueNumericLow": 9490.0, "FactValueNumericHigh": 10100.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2006, "FactValueNumeric": 9848.0, "FactValueNumericLow": 9540.0, "FactValueNumericHigh": 10200.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2005, "FactValueNumeric": 10427.0, "FactValueNumericLow": 10100.0, "FactValueNumericHigh": 10800.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2004, "FactValueNumeric": 11667.0, "FactValueNumericLow": 11200.0, "FactValueNumericHigh": 12100.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2003, "FactValueNumeric": 13021.0, "FactValueNumericLow": 12500.0, "FactValueNumericHigh": 13600.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2002, "FactValueNumeric": 13472.0, "FactValueNumericLow": 12900.0, "FactValueNumericHigh": 14100.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2001, "FactValueNumeric": 13668.0, "FactValueNumericLow": 13100.0, "FactValueNumericHigh": 14300.0, "DateModified": "2022-02-02T22:00:00"}, {"SpatialDimValueCode": "KEN", "Location": "Kenya", "Indicator": "Estimated number of malaria deaths", "Period": 2000, "FactValueNumeric": 11901.0, "FactValueNumericLow": 11500.0, "FactValueNumericHigh": 12400.0, "DateModified": "2022-02-02T22:00:00"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="heikoheilgendorff/adh_data_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/adh_data_blog/jupyter/malaria/2022/08/12/Malaria_blog_post_altair.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/adh_data_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/adh_data_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/adh_data_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/adh_data_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/adh_data_blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
