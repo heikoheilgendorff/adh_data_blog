@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -253,6 +253,176 @@ window.onload = wrap_img;
         
 &lt;/script&gt;' style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
 </div></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">"color:#565656"</span><span class="p">&gt;</span>Make this Notebook Trusted to load map: File -<span class="ni">&amp;gt;</span> Trust Notebook<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"output_wrapper"</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"out_prompt_overlay prompt"</span> <span class="na">title</span><span class="o">=</span><span class="s">"click to scroll output; double click to hide"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"output"</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"output_area"</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"run_this_cell"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"prompt output_prompt"</span><span class="p">&gt;&lt;</span><span class="nt">bdi</span><span class="p">&gt;</span>Out[3]:<span class="p">&lt;/</span><span class="nt">bdi</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"output_subarea output_html rendered_html output_result"</span> <span class="na">dir</span><span class="o">=</span><span class="s">"auto"</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"width:100%;"</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:relative;width:100%;height:0;padding-bottom:60%;"</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">"color:#565656"</span><span class="p">&gt;</span>Make this Notebook Trusted to load map: File -<span class="ni">&amp;gt;</span> Trust Notebook<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">srcdoc</span><span class="o">=</span><span class="s">"&lt;!DOCTYPE html&gt;</span>
+<span class="s">&lt;head&gt;    </span>
+<span class="s">    &lt;meta http-equiv=&amp;quot;content-type&amp;quot; content=&amp;quot;text/html; charset=UTF-8&amp;quot; /&gt;</span>
+<span class="s">    </span>
+<span class="s">        &lt;script&gt;</span>
+<span class="s">            L_NO_TOUCH = false;</span>
+<span class="s">            L_DISABLE_3D = false;</span>
+<span class="s">        &lt;/script&gt;</span>
+<span class="s">    </span>
+<span class="s">    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;</span>
+<span class="s">    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;</span>
+<span class="s">    &lt;script src=&amp;quot;https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js&amp;quot;&gt;&lt;/script&gt;</span>
+<span class="s">    &lt;script src=&amp;quot;https://code.jquery.com/jquery-1.12.4.min.js&amp;quot;&gt;&lt;/script&gt;</span>
+<span class="s">    &lt;script src=&amp;quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&amp;quot;&gt;&lt;/script&gt;</span>
+<span class="s">    &lt;script src=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&amp;quot;&gt;&lt;/script&gt;</span>
+<span class="s">    &lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css&amp;quot;/&gt;</span>
+<span class="s">    &lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&amp;quot;/&gt;</span>
+<span class="s">    &lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css&amp;quot;/&gt;</span>
+<span class="s">    &lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css&amp;quot;/&gt;</span>
+<span class="s">    &lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&amp;quot;/&gt;</span>
+<span class="s">    &lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&amp;quot;/&gt;</span>
+<span class="s">    </span>
+<span class="s">            &lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,</span>
+<span class="s">                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&amp;quot; /&gt;</span>
+<span class="s">            &lt;style&gt;</span>
+<span class="s">                #map_d2d98c7d3a1b4162d4b8d810c4765922 {</span>
+<span class="s">                    position: relative;</span>
+<span class="s">                    width: 100.0%;</span>
+<span class="s">                    height: 100.0%;</span>
+<span class="s">                    left: 0.0%;</span>
+<span class="s">                    top: 0.0%;</span>
+<span class="s">                }</span>
+<span class="s">            &lt;/style&gt;</span>
+<span class="s">        </span>
+<span class="s">&lt;/head&gt;</span>
+<span class="s">&lt;body&gt;    </span>
+<span class="s">    </span>
+<span class="s">            &lt;div class=&amp;quot;folium-map&amp;quot; id=&amp;quot;map_d2d98c7d3a1b4162d4b8d810c4765922&amp;quot; &gt;&lt;/div&gt;</span>
+<span class="s">        </span>
+<span class="s">&lt;/body&gt;</span>
+<span class="s">&lt;script&gt;    </span>
+<span class="s">    </span>
+<span class="s">            var map_d2d98c7d3a1b4162d4b8d810c4765922 = L.map(</span>
+<span class="s">                &amp;quot;map_d2d98c7d3a1b4162d4b8d810c4765922&amp;quot;,</span>
+<span class="s">                {</span>
+<span class="s">                    center: [45.5236, -122.675],</span>
+<span class="s">                    crs: L.CRS.EPSG3857,</span>
+<span class="s">                    zoom: 10,</span>
+<span class="s">                    zoomControl: true,</span>
+<span class="s">                    preferCanvas: false,</span>
+<span class="s">                }</span>
+<span class="s">            );</span>
+
+<span class="s">            </span>
+
+<span class="s">        </span>
+<span class="s">    </span>
+<span class="s">            var tile_layer_f53173e07ac779f4576c9e29770506d6 = L.tileLayer(</span>
+<span class="s">                &amp;quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&amp;quot;,</span>
+<span class="s">                {&amp;quot;attribution&amp;quot;: &amp;quot;Data by \u0026copy; \u003ca href=\&amp;quot;http://openstreetmap.org\&amp;quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\&amp;quot;http://www.openstreetmap.org/copyright\&amp;quot;\u003eODbL\u003c/a\u003e.&amp;quot;, &amp;quot;detectRetina&amp;quot;: false, &amp;quot;maxNativeZoom&amp;quot;: 18, &amp;quot;maxZoom&amp;quot;: 18, &amp;quot;minZoom&amp;quot;: 0, &amp;quot;noWrap&amp;quot;: false, &amp;quot;opacity&amp;quot;: 1, &amp;quot;subdomains&amp;quot;: &amp;quot;abc&amp;quot;, &amp;quot;tms&amp;quot;: false}</span>
+<span class="s">            ).addTo(map_d2d98c7d3a1b4162d4b8d810c4765922);</span>
+<span class="s">        </span>
+<span class="s">&lt;/script&gt;"</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;"</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">""</span> <span class="na">webkitallowfullscreen</span><span class="o">=</span><span class="s">""</span> <span class="na">mozallowfullscreen</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn btn-default output_collapsed"</span> <span class="na">title</span><span class="o">=</span><span class="s">"click to expand output"</span> <span class="na">style</span><span class="o">=</span><span class="s">"display: none;"</span><span class="p">&gt;</span>. . .<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span>
+<div class="output_wrapper">
+<div class="out_prompt_overlay prompt" title="click to scroll output; double click to hide"></div>
+<div class="output"><div class="output_area">
+<div class="run_this_cell"></div>
+<div class="prompt output_prompt"><bdi>Out[3]:</bdi></div>
+<div class="output_subarea output_html rendered_html output_result" dir="auto"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;">
+<span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc='&lt;!DOCTYPE html&gt;
+&lt;head&gt;    
+    &lt;meta http-equiv="content-type" content="text/html; charset=UTF-8" /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.jquery.com/jquery-1.12.4.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/&gt;
+    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/&gt;
+    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/&gt;
+    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/&gt;
+    
+            &lt;meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /&gt;
+            &lt;style&gt;
+                #map_d2d98c7d3a1b4162d4b8d810c4765922 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;    
+    
+            &lt;div class="folium-map" id="map_d2d98c7d3a1b4162d4b8d810c4765922" &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;    
+    
+            var map_d2d98c7d3a1b4162d4b8d810c4765922 = L.map(
+                "map_d2d98c7d3a1b4162d4b8d810c4765922",
+                {
+                    center: [45.5236, -122.675],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f53173e07ac779f4576c9e29770506d6 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d2d98c7d3a1b4162d4b8d810c4765922);
+        
+&lt;/script&gt;' style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+</div></div></div>
+</div></div>
+<div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div>
+</div>
+
 </div>
 
 </div>
@@ -454,7 +624,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"http://example.com"</span><span class="p">&gt;</span>link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -467,8 +638,9 @@ window.onload = wrap_img;
 <div class="output_area">
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_html rendered_html output_subarea ">
 <a href="http://example.com">link</a>
+
 </div>
 
 </div>
