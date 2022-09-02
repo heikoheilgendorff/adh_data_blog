@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: ADH Data Blog Staging
-description: ADH Data Blog Staging
+description: A staging site for ADH data blog posts under development
 github_username: heikoheilgendorff
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "adh_data_blog"
