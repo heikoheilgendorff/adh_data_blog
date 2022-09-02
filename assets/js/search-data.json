@@ -25,7 +25,7 @@
     
         ,"post2": {
             "title": "How We Created the ADH Inflation Database",
-            "content": "",
+            "content": "Introduction . IMF . Individual african country sources . Extracting data from PDFs . Combining data . Posting data . Conclusion .",
             "url": "https://heikoheilgendorff.github.io/adh_data_blog/ckan/data/overview/inflation/2022/09/01/Inflation-Database-Methodology.html",
             "relUrl": "/ckan/data/overview/inflation/2022/09/01/Inflation-Database-Methodology.html",
             "date": " • Sep 1, 2022"
