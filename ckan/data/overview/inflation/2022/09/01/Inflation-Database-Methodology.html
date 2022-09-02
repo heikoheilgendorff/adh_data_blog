@@ -97,7 +97,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -126,8 +126,7 @@ window.onload = wrap_img;
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h3"><a href="#Introduction">Introduction </a></li>
 <li class="toc-entry toc-h3"><a href="#Data-sources">Data sources </a></li>
-<li class="toc-entry toc-h3"><a href="#Extracting-data-from-PDFs">Extracting data from PDFs </a></li>
-<li class="toc-entry toc-h3"><a href="#Combining-data">Combining data </a></li>
+<li class="toc-entry toc-h3"><a href="#Extracting-data-from-PDFs-and-combining-it-into-one-dataset">Extracting data from PDFs and combining it into one dataset </a></li>
 <li class="toc-entry toc-h3"><a href="#Posting-data">Posting data </a></li>
 <li class="toc-entry toc-h3"><a href="#Conclusion">Conclusion </a></li>
 </ul><!--
@@ -145,7 +144,7 @@ window.onload = wrap_img;
 <h3 id="Introduction">
 <a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
 </h3>
-<p>The International Monetary Fund (IMF) provide a great resource on inflation. This database receives inflation data from nations across the globe and combines it into a single unified table. This is naturally a massive undertaking, and as it requires the co-operation of every country that is represented in the database, it can sometimes take a little while for the latest data to be published, leaving the database temporarily out of date. As the African Data Hub, our mission is to provide data journalists, researchers, and the general data with up to date, accurate, African-based data. In service to this mission, we have undertaken to maintain an inflation database, specifically focused on African countries, using the IMF database as the key dataset, but updating it with data released by individual African nations, before this information makes its way to the IMF. Thus we are able to maintain one of the most up to date inflation datasets in the world based exclusively on African datasets.</p>
+<p>The International Monetary Fund (IMF) provide a great resource on inflation: the IMF <a href="https://data.imf.org/?sk=4FFB52B2-3653-409A-B471-D47B46D904B5">Consumer Price Index (CPI)</a> database. This database receives inflation data from nations across the globe and combines it into a single unified table. This is naturally a massive undertaking, and as it requires the co-operation of every country that is represented in the database, it can sometimes take a little while for the latest data to be published. This delay leaves the database temporarily out of date, often by more than a month. As the African Data Hub, our mission is to provide data journalists, researchers, and the general data with up to date, accurate, African-based data. In service to this mission, we have undertaken to maintain an inflation database, specifically focused on African countries, using the IMF database as the key dataset, but updating it with data released by individual African nations, before this information makes its way to the IMF. Thus we are able to maintain one of the most up to date inflation datasets in the world based exclusively on African datasets.</p>
 
 </div>
 </div>
@@ -156,24 +155,19 @@ window.onload = wrap_img;
 <h3 id="Data-sources">
 <a class="anchor" href="#Data-sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data sources<a class="anchor-link" href="#Data-sources"> </a>
 </h3>
+<p>The data that we have used to create this database can be found <a href="https://ckan.africadatahub.org/group/inflation-database">here</a> and the full list of data sources can be found <a href="https://ckan.africadatahub.org/dataset/inflation-data-for-africa/resource/04415771-ba74-43d3-866c-b9dc9b8ea4d0">here</a>. We gather the latest inflation data from different African countries by visiting the relevant websites (typically the country's national statistics bureau), searching for the latest inflation statistics, and then downloading the data. This data is often contained in official reports, published in PDF format. This can make extracting and using the data tables contained within the reports difficult and time-consuming. On rare occasions, the reports are accompanied by a separate data table release in CSV or XLSX format, which is much easier to use. The first step in combining the data from the IMF and the various countries is to extract the relevant data and convert it all to the same format.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Extracting-data-from-PDFs">
-<a class="anchor" href="#Extracting-data-from-PDFs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extracting data from PDFs<a class="anchor-link" href="#Extracting-data-from-PDFs"> </a>
+<h3 id="Extracting-data-from-PDFs-and-combining-it-into-one-dataset">
+<a class="anchor" href="#Extracting-data-from-PDFs-and-combining-it-into-one-dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extracting data from PDFs and combining it into one dataset<a class="anchor-link" href="#Extracting-data-from-PDFs-and-combining-it-into-one-dataset"> </a>
 </h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Combining-data">
-<a class="anchor" href="#Combining-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Combining data<a class="anchor-link" href="#Combining-data"> </a>
-</h3>
+<p>The one advantage about formal reports that have been published in PDF is that they are typically consistently structured, with only the content changing. Thus we were able to construct an automated process for extracting data from PDF tables that was unique to each country. The data was extracted using a python module (look out for a blog post on this process, coming soon!) called <a href="https://pypi.org/project/tabula-py/">tabula</a>, then cleaned and arranged in a manner that was consistent across all datasets, before being stored as a CSV. We then took our latest <a href="https://ckan.africadatahub.org/dataset/inflation-data-for-africa/resource/15b5b9eb-e68e-461c-8f8e-7bd0c69dcd14">ADH Inflation</a> dataset, updated it with the latest IMF dataset, updated it further using</p>
+
 </div>
 </div>
 </div>
