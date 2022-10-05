@@ -4,9 +4,9 @@
         "post0": {
             "title": "Mapping Data in Python (draft)",
             "content": "",
-            "url": "https://heikoheilgendorff.github.io/adh_data_blog/python/datascience/2022/10/03/Python_mapping_tutorial.html",
-            "relUrl": "/python/datascience/2022/10/03/Python_mapping_tutorial.html",
-            "date": " • Oct 3, 2022"
+            "url": "https://heikoheilgendorff.github.io/adh_data_blog/python/datascience/2022/10/04/Python_mapping_tutorial.html",
+            "relUrl": "/python/datascience/2022/10/04/Python_mapping_tutorial.html",
+            "date": " • Oct 4, 2022"
         }
         
     
@@ -15,9 +15,9 @@
         ,"post1": {
             "title": "Title",
             "content": "",
-            "url": "https://heikoheilgendorff.github.io/adh_data_blog/2022/10/03/Language-translation-with-python.html",
-            "relUrl": "/2022/10/03/Language-translation-with-python.html",
-            "date": " • Oct 3, 2022"
+            "url": "https://heikoheilgendorff.github.io/adh_data_blog/2022/10/04/Language-translation-with-python.html",
+            "relUrl": "/2022/10/04/Language-translation-with-python.html",
+            "date": " • Oct 4, 2022"
         }
         
     
@@ -26,9 +26,9 @@
         ,"post2": {
             "title": "Introducing Metabase (draft)",
             "content": "%%html &lt;iframe src=&quot;https://metabase.africadatahub.org/public/dashboard/0e7e7c08-1a78-4303-85cb-90e549865917&quot; frameborder=&quot;0&quot; width=&quot;900&quot; height=&quot;800&quot; allowtransparency &gt;&lt;/iframe&gt; .",
-            "url": "https://heikoheilgendorff.github.io/adh_data_blog/metabase/overview/2022/10/03/Introducing_metabase.html",
-            "relUrl": "/metabase/overview/2022/10/03/Introducing_metabase.html",
-            "date": " • Oct 3, 2022"
+            "url": "https://heikoheilgendorff.github.io/adh_data_blog/metabase/overview/2022/10/04/Introducing_metabase.html",
+            "relUrl": "/metabase/overview/2022/10/04/Introducing_metabase.html",
+            "date": " • Oct 4, 2022"
         }
         
     
@@ -37,9 +37,9 @@
         ,"post3": {
             "title": "How We Created the ADH Inflation Database (complete)",
             "content": "Introduction . The International Monetary Fund (IMF) provide a great resource on inflation: the IMF Consumer Price Index (CPI) database. This database receives inflation data from nations across the globe and combines it into a single unified table. This is naturally a massive undertaking, and as it requires the co-operation of every country that is represented in the database, it can sometimes take a little while for the latest data to be published. This delay leaves the database temporarily out of date, often by more than a month. As the African Data Hub, our mission is to provide data journalists, researchers, and the general data with up to date, accurate, African-based data. In service to this mission, we have undertaken to maintain an inflation database, specifically focused on African countries, using the IMF database as the key dataset, but updating it with data released by individual African nations, before this information makes its way to the IMF. Thus we are able to maintain one of the most up to date inflation datasets in the world based exclusively on African datasets. . Data sources . The data that we have used to create this database can be found here and the full list of data sources can be found here. We gather the latest inflation data from different African countries by visiting the relevant websites (typically the country&#39;s national statistics bureau), searching for the latest inflation statistics, and then downloading the data. This data is often contained in official reports, published in PDF format. This can make extracting and using the data tables contained within the reports difficult and time-consuming. On rare occasions, the reports are accompanied by a separate data table release in CSV or XLSX format, which is much easier to use. The first step in combining the data from the IMF and the various countries is to extract the relevant data and convert it all to the same format. . Extracting data from PDFs and combining it into one dataset . The one advantage about formal reports that have been published in PDF is that they are typically consistently structured, with only the content changing. Thus we were able to construct an automated process for extracting data from PDF tables that was unique to each country. The data was extracted using a python module (look out for a blog post on this process, coming soon!) called Tabula, then cleaned and arranged in a manner that was consistent across all datasets, before being stored as a CSV. We then took our latest ADH Inflation dataset, updated it with the latest IMF dataset, and updated it further with the data scraped from individual countries. . Posting data . Once the data has been combined, we save the final dataset as a CSV file and then post it on the ADH CKAN data repository here. We also push all of the source data and scraped CSV files for each country to our githb repo and then provide public access to this data via links in each country dataset on CKAN, found here. .",
-            "url": "https://heikoheilgendorff.github.io/adh_data_blog/ckan/data/overview/inflation/2022/10/03/Inflation-Database-Methodology.html",
-            "relUrl": "/ckan/data/overview/inflation/2022/10/03/Inflation-Database-Methodology.html",
-            "date": " • Oct 3, 2022"
+            "url": "https://heikoheilgendorff.github.io/adh_data_blog/ckan/data/overview/inflation/2022/10/04/Inflation-Database-Methodology.html",
+            "relUrl": "/ckan/data/overview/inflation/2022/10/04/Inflation-Database-Methodology.html",
+            "date": " • Oct 4, 2022"
         }
         
     
