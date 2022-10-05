@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Introducing the African Data Hub CKAN Repository (complete) | ADH Data Blog Staging</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Introducing the African Data Hub CKAN Repository (complete)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An overview of the ADH data repository - what it is, how to use it, and how the African Data Hub engages with it." />
+<meta property="og:description" content="An overview of the ADH data repository - what it is, how to use it, and how the African Data Hub engages with it." />
+<link rel="canonical" href="https://heikoheilgendorff.github.io/adh_data_blog/adh/ckan/data/overview/2022/08/30/ADH_CKAN.html" />
+<meta property="og:url" content="https://heikoheilgendorff.github.io/adh_data_blog/adh/ckan/data/overview/2022/08/30/ADH_CKAN.html" />
+<meta property="og:site_name" content="ADH Data Blog Staging" />
+<meta property="og:image" content="https://heikoheilgendorff.github.io/adh_data_blog/images/chart-preview.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-30T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://heikoheilgendorff.github.io/adh_data_blog/images/chart-preview.png" />
+<meta property="twitter:title" content="Introducing the African Data Hub CKAN Repository (complete)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-30T00:00:00-05:00","datePublished":"2022-08-30T00:00:00-05:00","description":"An overview of the ADH data repository - what it is, how to use it, and how the African Data Hub engages with it.","headline":"Introducing the African Data Hub CKAN Repository (complete)","image":"https://heikoheilgendorff.github.io/adh_data_blog/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://heikoheilgendorff.github.io/adh_data_blog/adh/ckan/data/overview/2022/08/30/ADH_CKAN.html"},"url":"https://heikoheilgendorff.github.io/adh_data_blog/adh/ckan/data/overview/2022/08/30/ADH_CKAN.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/adh_data_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://heikoheilgendorff.github.io/adh_data_blog/feed.xml" title="ADH Data Blog Staging" /><link rel="shortcut icon" type="image/x-icon" href="/adh_data_blog/images/favicon_adh.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/adh_data_blog/">ADH Data Blog Staging</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/adh_data_blog/about/">About This Blog</a><a class="page-link" href="/adh_data_blog/search/">Search</a><a class="page-link" href="/adh_data_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Introducing the African Data Hub CKAN Repository (complete)</h1><p class="page-description">An overview of the ADH data repository - what it is, how to use it, and how the African Data Hub engages with it.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-30T00:00:00-05:00" itemprop="datePublished">
+        Aug 30, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/adh_data_blog/categories/#ADH">ADH</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/adh_data_blog/categories/#CKAN">CKAN</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/adh_data_blog/categories/#Data">Data</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/adh_data_blog/categories/#Overview">Overview</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h3"><a href="#Dataset-vs-Resource">Dataset vs Resource </a></li>
+<li class="toc-entry toc-h3"><a href="#Metadata">Metadata </a></li>
+<li class="toc-entry toc-h3"><a href="#table-1-metadata-description">Table 1: Metadata description</a></li>
+<li class="toc-entry toc-h3"><a href="#Types-of-Data-Available-on-the-ADH-data-repository">Types of Data Available on the ADH data repository </a></li>
+<li class="toc-entry toc-h3"><a href="#Finding-and-accessing-data">Finding and accessing data </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Organisations">Organisations </a></li>
+<li class="toc-entry toc-h4"><a href="#Groups">Groups </a></li>
+<li class="toc-entry toc-h4"><a href="#Tags">Tags </a></li>
+<li class="toc-entry toc-h4"><a href="#Search">Search </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Uploading-Data">Uploading Data </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-08-30-ADH_CKAN.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h3>
+<p>The <a href="https://www.africadatahub.org/">African Data Hub</a> (ADH) seeks to support and promote quality data-driven journalism in Africa by providing newsrooms, researchers, and the general public with easy access to quality African data. African data is typically difficult to find, stored in unwieldy formats, and is often out of date. ADH is working to remedy this by actively seeking out interesting and useful African datasets, converting them to more easily accessible formats, updating and creating combined datasets where possible storing them all on our opensource, online, CKAN <a href="https://ckan.africadatahub.org/">data repository</a>.</p>
+<p><a href="https://ckan.org/">CKAN</a> is an open source data management system that is used by hundreds of organisations around the world including the national governments of USA, Canada, Singapore, Australia and others. We use this resource to host any data we find that we believe may be useful in serving our mandate in the promotion of quality data-driven journalism in Africa.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dataset-vs-Resource">
+<a class="anchor" href="#Dataset-vs-Resource" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dataset vs Resource<a class="anchor-link" href="#Dataset-vs-Resource"> </a>
+</h3>
+<p>When using CKAN, it is important to understand the difference between the system's definition of a <code>dataset</code> vs a <code>resource</code>. A dataset is a collection of related data resources, while a resource is a single file. It may be useful to think of a dataset as a folder on your computer and a resource as a file in that folder. When posting data on CKAN, you first need to create a dataset and fill in the required <code>metadata</code>. Then you can add resources either by uploading files, or linking them via URL.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Metadata">
+<a class="anchor" href="#Metadata" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metadata<a class="anchor-link" href="#Metadata"> </a>
+</h3>
+<p>The importance of complete and correct metadata cannot be overstated. Metadata provides context for a given dataset which allows a potential user to understand what it is about, where it came from, how it was created and how it can be used. The following table provides details on the required metadata.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Table 1: <span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>Metadata description<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+<span class="p">.</span><span class="nc">tg</span>  <span class="p">{</span><span class="k">border-collapse</span><span class="p">:</span><span class="kc">collapse</span><span class="p">;</span><span class="k">border-spacing</span><span class="p">:</span><span class="mi">0</span><span class="p">;}</span>
+<span class="p">.</span><span class="nc">tg</span> <span class="nt">td</span><span class="p">{</span><span class="k">border-color</span><span class="p">:</span><span class="kc">black</span><span class="p">;</span><span class="k">border-style</span><span class="p">:</span><span class="kc">solid</span><span class="p">;</span><span class="k">border-width</span><span class="p">:</span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="k">font-family</span><span class="p">:</span><span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span><span class="k">font-size</span><span class="p">:</span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="k">word-break</span><span class="p">:</span><span class="kc">normal</span><span class="p">;}</span>
+<span class="p">.</span><span class="nc">tg</span> <span class="nt">th</span><span class="p">{</span><span class="k">border-color</span><span class="p">:</span><span class="kc">black</span><span class="p">;</span><span class="k">border-style</span><span class="p">:</span><span class="kc">solid</span><span class="p">;</span><span class="k">border-width</span><span class="p">:</span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="k">font-family</span><span class="p">:</span><span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span><span class="k">font-size</span><span class="p">:</span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="p">:</span><span class="kc">normal</span><span class="p">;</span><span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="k">word-break</span><span class="p">:</span><span class="kc">normal</span><span class="p">;}</span>
+<span class="p">.</span><span class="nc">tg</span> <span class="p">.</span><span class="nc">tg-j1i3</span><span class="p">{</span><span class="k">border-color</span><span class="p">:</span><span class="kc">inherit</span><span class="p">;</span><span class="k">position</span><span class="p">:</span><span class="bp">-webkit-</span><span class="kc">sticky</span><span class="p">;</span><span class="k">position</span><span class="p">:</span><span class="kc">sticky</span><span class="p">;</span><span class="k">text-align</span><span class="p">:</span><span class="kc">left</span><span class="p">;</span><span class="k">top</span><span class="p">:</span><span class="mi">-1</span><span class="kt">px</span><span class="p">;</span><span class="k">vertical-align</span><span class="p">:</span><span class="kc">top</span><span class="p">;</span>
+  <span class="k">will-change</span><span class="p">:</span><span class="k">transform</span><span class="p">}</span>
+<span class="p">.</span><span class="nc">tg</span> <span class="p">.</span><span class="nc">tg-0pky</span><span class="p">{</span><span class="k">border-color</span><span class="p">:</span><span class="kc">inherit</span><span class="p">;</span><span class="k">text-align</span><span class="p">:</span><span class="kc">left</span><span class="p">;</span><span class="k">vertical-align</span><span class="p">:</span><span class="kc">top</span><span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">767px</span><span class="o">)</span> <span class="p">{.</span><span class="nc">tg</span> <span class="p">{</span><span class="k">width</span><span class="p">:</span> <span class="kc">auto</span> <span class="cp">!important</span><span class="p">;}.</span><span class="nc">tg</span> <span class="nt">col</span> <span class="p">{</span><span class="k">width</span><span class="p">:</span> <span class="kc">auto</span> <span class="cp">!important</span><span class="p">;}.</span><span class="nc">tg-wrap</span> <span class="p">{</span><span class="k">overflow-x</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span><span class="kp">-webkit-</span><span class="n">overflow-scrolling</span><span class="p">:</span> <span class="n">touch</span><span class="p">;}}&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-wrap"</span><span class="p">&gt;&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-j1i3"</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Metadata<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-j1i3"</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>   
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>A descriptive title<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>    
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Brief description of what is in the data - is this the industry standard, how does it compare to similar datasets, is this data hosted/used elsewhere?
+Summary of the methodology (include link to methodology where applicable). Link to example analysis (where applicable) 
+<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Tags<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Main themes<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Licence<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>NB!!<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> Licence this data is shared under. Use <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">"https://chooser-beta.creativecommons.org/"</span><span class="p">&gt;</span> this resource <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> if you're unsure
+<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Organisation<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>ADH organisation that sourced/uses this data<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Visibility<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Can be set to public/private (ADH members only)<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Source<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>NB!!<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> Link to where the data was found<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Version<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Version number<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Author<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Name of person/entity that produced the data<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Author email<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Contact email for person/entity who produced the data<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Maintainer<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Name of ADH member responsible for this dataset<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Maintainer email<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Contact email for ADH member responsible for this dataset<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Groups<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Project this data is used for<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Data format<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"tg-0pky"</span><span class="p">&gt;</span>Filled in automatically<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<h3>
+<a class="anchor" href="#table-1-metadata-description" aria-hidden="true"><span class="octicon octicon-link"></span></a><b>Table 1: </b>Metadata description</h3>
+<p>    </p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-j1i3{border-color:inherit;position:-webkit-sticky;position:sticky;text-align:left;top:-1px;vertical-align:top;
+  will-change:transform}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
+
+<div class="tg-wrap"><table class="tg">
+<thead>
+  <tr>
+    <th class="tg-j1i3"><b>Metadata</b></th>
+    <th class="tg-j1i3"><b>Description</b></th>   
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Title</td>
+    <td class="tg-0pky">A descriptive title</td>    
+  </tr>
+  <tr>
+    <td class="tg-0pky">Description</td>
+    <td class="tg-0pky">Brief description of what is in the data - is this the industry standard, how does it compare to similar datasets, is this data hosted/used elsewhere?
+Summary of the methodology (include link to methodology where applicable). Link to example analysis (where applicable) 
+</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Tags</td>
+    <td class="tg-0pky">Main themes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Licence</td>
+    <td class="tg-0pky">
+<b>NB!!</b> Licence this data is shared under. Use <a href="https://chooser-beta.creativecommons.org/"> this resource </a> if you're unsure
+</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Organisation</td>
+    <td class="tg-0pky">ADH organisation that sourced/uses this data</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Visibility</td>
+    <td class="tg-0pky">Can be set to public/private (ADH members only)</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Source</td>
+    <td class="tg-0pky">
+<b>NB!!</b> Link to where the data was found</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Version</td>
+    <td class="tg-0pky">Version number</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Author</td>
+    <td class="tg-0pky">Name of person/entity that produced the data</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Author email</td>
+    <td class="tg-0pky">Contact email for person/entity who produced the data</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Maintainer</td>
+    <td class="tg-0pky">Name of ADH member responsible for this dataset</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Maintainer email</td>
+    <td class="tg-0pky">Contact email for ADH member responsible for this dataset</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Groups</td>
+    <td class="tg-0pky">Project this data is used for</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Data format</td>
+    <td class="tg-0pky">Filled in automatically</td>
+  </tr>
+</tbody>
+</table></div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Types-of-Data-Available-on-the-ADH-data-repository">
+<a class="anchor" href="#Types-of-Data-Available-on-the-ADH-data-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types of Data Available on the ADH data repository<a class="anchor-link" href="#Types-of-Data-Available-on-the-ADH-data-repository"> </a>
+</h3>
+<p>The data is available in a wide variety of formats, from spreadsheets (eg: XLSX, CSV) to geographic (eg: SHP, geoJSON) to image (eg: geoTIFF, PNG) and even documents like PDF, etc. Some datasets will include the same data in different formats under different resources. It is therefore not always necessary to download an entire dataset, but rather, only look for formats that you are comfortable with or are able to use. Different formats of data are also often different sizes. For a tutorial on exploring a dataset with different formats of the same data, see <a href="https://heikoheilgendorff.github.io/adh_data_blog/geo%20data/population%20density/2022/08/12/geo-data-prep-tutorial.html">here</a> <strong>ENTER PUBLISHED LINK HERE</strong>.</p>
+<p>Many countries tend to release their data in PDF format. Unfortunately, data in PDF form is usually difficult to work with. As such, when we come across PDF data that we believe could be useful for an African data journalist, we try to extract the data and present it in csv or xlsx format, which is much easier to work with. When ever we do this, we are sure to include links to the original PDF documents so that the authenticity and correctness of the extracted data can be verified by anyone who wishes to use it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Finding-and-accessing-data">
+<a class="anchor" href="#Finding-and-accessing-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding and accessing data<a class="anchor-link" href="#Finding-and-accessing-data"> </a>
+</h3>
+<p>Our data is organised in terms of <code>datasets</code>, <code>organisations</code>, <code>groups</code> and <code>tags</code>. Datasets have already been described above.</p>
+<h4 id="Organisations">
+<a class="anchor" href="#Organisations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organisations<a class="anchor-link" href="#Organisations"> </a>
+</h4>
+<p>Each organisation that is part of ADH is represented by an organisation on CKAN. Any data that was found, produced or used by a particular ADH partner can be found in that partner's <a href="https://ckan.africadatahub.org/organization/">organisation</a>.</p>
+<h4 id="Groups">
+<a class="anchor" href="#Groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>Groups<a class="anchor-link" href="#Groups"> </a>
+</h4>
+<p><a href="https://ckan.africadatahub.org/group/">Groups</a> indicate the data category, for example <code>Health</code> data, <code>Economic</code> data etc. A dataset may belong to more than one group. Groups also serve as folders for all datasets used in a particular data tool or project. Finally, if several different datasets have all been sourced from the same place, then all of those datasets are placed in a group named after that source. See for example, the <a href="https://ckan.africadatahub.org/group/hdx-humanitarian-data-exchange">Humanitarian Data Exchange</a>, and the accompanying <a href="https://heikoheilgendorff.github.io/adh_data_blog/hdx/overview/ckan/data/2022/08/31/HDX_Blogpost.html">blog post</a><strong>ENTER PUBLISHED LINK HERE</strong>.</p>
+<h4 id="Tags">
+<a class="anchor" href="#Tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tags<a class="anchor-link" href="#Tags"> </a>
+</h4>
+<p>Tags identify interesting characteristics of the data. For example, if the data contains gender information, it is tagged with <code>gender</code>, if it is geographical data, it is tagged with <code>geodata</code>.</p>
+<h4 id="Search">
+<a class="anchor" href="#Search" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search<a class="anchor-link" href="#Search"> </a>
+</h4>
+<p>Searching for datasets on the ADH data repository is done in two ways: by searching for terms that you type into the search bar found at the top of almost every page on the ADH data repository, and by filtering a list of search results. Entering a search term causes CKAN to look for matching terms in the titles, descriptions, locations and tags of a dataset. This is very similar to searching for something on Google. The resulting list of items can be further refined using the filter options on the left side of the search result. You can filter by organisation, group, tag, format, and license.</p>
+<p>Once you have narrowed your search down to a manageable list of datasets, you need to click on one and see if it contains any resources that you wish to use. You can download any resource by clicking on <code>download</code> on the dropdown <code>explore</code> button to the right of the resource. As noted above, pay attention to the format of the resource that you wish to download and ensure that you download it in the correct format.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Uploading-Data">
+<a class="anchor" href="#Uploading-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Uploading Data<a class="anchor-link" href="#Uploading-Data"> </a>
+</h3>
+<p>CKAN controls who can upload or make changes to existing data through user permissions. There are three levels of user permissions with <code>administrator</code> being the highest, followed by <code>editor</code>, and <code>member</code>. These permissions are assigned at both the organisation and group level. Only administrators and members are able to upload or edit data on CKAN. Members are able to view and download the data. There is also a <code>system administrator</code> who has control over the entire system. Visitors to the site, that is, people who do not have login credentials, are only able to view and download <code>public</code> data, while users with login credentials are able to view and download both public and <code>private</code> datasets.</p>
+<p>Uploading data to the ADH CKAN platform is really easy. First, click on the <code>datasets</code> tab at the top of the screen and then click on the <code>add datasets</code> button as seen in Figure 1.</p>
+<p><img src="/adh_data_blog/images/copied_from_nb/images/ADH/add_dataset_1.jpg" alt="" title="Figure 1: A screenshot detailing the first step in uploading data to the ADH data repository."></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You will be taken to a webpage like the one shown in Figure 2. Now fill in all of the metadata as described in Table 1.</p>
+<p><img src="/adh_data_blog/images/copied_from_nb/images/ADH/add_dataset_2.jpg" alt="" title="Figure 2: A screenshot detailing the second step in uploading data to the ADH data repository."></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once you have filled in all of the required metadata fields, click the <code>Next: Add Data</code> button near the bottom right of your screen as seen in Figure 3.</p>
+<p><img src="/adh_data_blog/images/copied_from_nb/images/ADH/add_dataset_3.jpg" alt="" title="Figure 3: A screenshot detailing the third step in uploading data to the ADH data repository."></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Give your data file a descriptive name and a good description and then either upload your file or link it via URL. Click on <code>Save &amp; add another</code> if you have more files to upload, and when you have completed your upload, click on the <code>Add</code> button, seen here in Figure 4.</p>
+<p><img src="/adh_data_blog/images/copied_from_nb/images/ADH/add_dataset_4.jpg" alt="" title="Figure 4: A screenshot detailing the final step in uploading data to the ADH data repository."></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you need to edit or remove a file, click on the <code>Manage</code> button near the top right of your screen, as shown in Figure 5.</p>
+<p><img src="/adh_data_blog/images/copied_from_nb/images/ADH/add_dataset_5.jpg" alt="" title="Figure 5: A screenshot showing how to edit data to the ADH data repository."></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/adh_data_blog/adh/ckan/data/overview/2022/08/30/ADH_CKAN.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/adh_data_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/adh_data_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/adh_data_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A staging site for ADH data blog posts under development</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
